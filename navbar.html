@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <header>
+        <nav class="navbar">
+            <div>
+                <a href="https://home.tarbajwaqf.org">
+                    <img src="Images/logo.png" alt="Tarbaj Waqf Logo" style="height: 50px;">
+                </a>
+            </div>
+            
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="https://home.tarbajwaqf.org/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://home.tarbajwaqf.org/about/" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://home.tarbajwaqf.org/programs/" class="nav-link">Programs</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://home.tarbajwaqf.org/contact/" class="nav-link">Contact us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://tarbajwaqf.org/payments" class="nav-link">Donate</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://tarbajwaqf.org/register" class="nav-link">Login/Register</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+
+        </nav>
+    </header>
+</head>
+<body>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        header{
+            background-color:green;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+
+        .navbar{
+            min-height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 24px;
+            position: fixed; /* Fix the navbar at the top */ width: 100%; /* Ensure the navbar spans the full width of the viewport */ top: 0; /* Stick the navbar to the top of the page */ z-index: 1000;
+            background-color: green;
+        }
+        .nav-menu{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px;
+        }
+        .nav-branding{
+            font-size: 2rem
+
+        }
+        .nav-link{
+            transition: 0.7s ease;
+        }
+        .nav-link:hover{
+            color: dodgerblue;
+        }
+
+        .hamburger{
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar{
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            background-color: white;
+        }
+
+        @media (max-width: 788px) {
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2){
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(1){
+                transform: translateY(8px) rotate(45deg)
+            }
+            .hamburger.active .bar:nth-child(3){
+                transform: translateY(-8px) rotate(-45deg)
+            }
+
+            .nav-menu{
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                gap: 0;
+                flex-direction: column;
+                background-color: #262626;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+            }
+
+            .nav-item{
+                margin: 16px 0;
+            }
+
+            .nav-menu.active{
+                left: 0;
+            }
+        }
+
+       
+    </style>
+
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        })
+
+        document.querySelectorAll(".nav-link").forEach(n => n.
+        addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }))
+
+    </script>
+</body>
+</html>
